@@ -5,22 +5,23 @@ def merge_ranges(meetings):
 
     # Merge meeting ranges
     meetings.sort()
-    new_list = []
+    updatedList = []
+    
     for i in range(len(meetings)):
         meetings[i] = list(meetings[i])
 
-    new_list.append(meetings[0])
+    updatedList.append(meetings[0])
 
     for current in meetings[1:]:
-        if current[0]<=new_list[len(new_list)-1][1]:
-            new_list[len(new_list)-1][1] = max(current[1],new_list[len(new_list)-1][1])
+        if current[0]<=updatedList[len(updatedList)-1][1]:
+            updatedList[len(updatedList)-1][1] = max(current[1],updatedList[len(updatedList)-1][1])
         else:
-            new_list.append(current)
+            updatedList.append(current)
 
-    for i in range(len(new_list)):
-        new_list[i] = tuple(new_list[i])
+    for i in range(len(updatedList)):
+        updatedList[i] = tuple(updatedList[i])
         
-    return new_list
+    return updatedList
 
 
 
